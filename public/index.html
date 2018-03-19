@@ -1,0 +1,76 @@
+<!DOCTYPE doctype html>
+<html>
+    <head>
+        <title>
+            Socket.IO chat
+        </title>
+    </head>
+    <style type="text/css">
+        body,html{
+
+      width: 100%;
+    }
+    img{
+      height: auto;
+      width: 999px;
+      margin: auto;
+      
+    }
+    *{
+      padding: 0;
+      margin: 0;
+    }
+        #proxylistcheker li{
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      width: 100%;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      -o-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }#proxylistcheker li>div{
+        width: 100%;
+    }
+      #proxylistcheker div{
+        border: 1px solid red;color-profile: -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+      }
+    </style>
+    <body>
+        <ol id="proxylistcheker">
+            <button @click="startReg">startReg
+            </button>
+            <li v-for="proxy in proxys">
+                <div>
+                    <div>
+                        {{ proxy.ipport }}
+                    </div>
+                    <div>
+                        {{ proxy.type }}
+                    </div>
+                    <div v-html="proxy.status" >
+                        
+                    </div>
+                </div>
+                <div>
+                    <img :src="proxy.img" v-on:click="sendClickCords(proxy,$event)"/>
+                </div>
+            </li>
+        </ol>
+        <script src="https://code.jquery.com/jquery-1.11.1.js">
+        </script>
+        <script src="/js/socket.io.js">
+        </script>
+        <script src="/js/vue.js">
+        </script>
+        <script src="/js/main.js">
+        </script>
+    </body>
+</html>
